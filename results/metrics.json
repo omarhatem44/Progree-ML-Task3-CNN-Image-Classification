@@ -1,0 +1,65 @@
+{
+  "task": "Progree ML Task 3: CNN image classification on MNIST",
+  "n_train": 54000,
+  "n_validation": 6000,
+  "n_test": 10000,
+  "random_state": 42,
+  "epochs": 20,
+  "batch_size": 128,
+  "optimizer": "Adam, learning rate 0.001",
+  "augmentation": "rotation up to 10 degrees, shift up to 10%, zoom up to 10%, training batches only",
+  "checkpoint": "weights from the epoch with the lowest validation loss",
+  "models": {
+    "baseline": {
+      "label": "CNN without augmentation",
+      "parameters": 241546,
+      "best_epoch": 10,
+      "train_time_s": 310,
+      "train": {
+        "accuracy": 0.9981,
+        "loss": 0.0061,
+        "macro_f1": 0.9981,
+        "errors": 104
+      },
+      "validation": {
+        "accuracy": 0.9908,
+        "loss": 0.0374,
+        "macro_f1": 0.9908,
+        "errors": 55
+      },
+      "test": {
+        "accuracy": 0.9931,
+        "loss": 0.0261,
+        "macro_f1": 0.993,
+        "errors": 69
+      }
+    },
+    "augmented": {
+      "label": "CNN with augmentation",
+      "parameters": 241546,
+      "best_epoch": 19,
+      "train_time_s": 335,
+      "train": {
+        "accuracy": 0.9947,
+        "loss": 0.0175,
+        "macro_f1": 0.9946,
+        "errors": 286
+      },
+      "validation": {
+        "accuracy": 0.9927,
+        "loss": 0.0263,
+        "macro_f1": 0.9926,
+        "errors": 44
+      },
+      "test": {
+        "accuracy": 0.9937,
+        "loss": 0.0212,
+        "macro_f1": 0.9936,
+        "errors": 63
+      }
+    }
+  },
+  "final_model": "augmented",
+  "tensorflow_version": "2.21.0",
+  "keras_version": "3.15.1"
+}
